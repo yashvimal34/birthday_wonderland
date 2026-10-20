@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Happy Birthday, Garry! 🎂</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Pacifico&family=Quicksand:wght@400;500;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <canvas id="confetti" aria-hidden="true"></canvas>
+  <div id="ambient" aria-hidden="true"></div>
+  <div id="fairy" aria-hidden="true"></div>
+  <div id="loader" role="status" aria-live="polite">
+    <div class="loader-glow" aria-hidden="true"></div>
+    <div id="loadCake" aria-hidden="true"></div>
+    <p id="loadMsg" class="font-script text-3xl sm:text-4xl text-center px-6 mt-8">Gathering a thousand little reasons to make you smile...</p>
+    <div class="load-track" aria-hidden="true"><div id="loadBar"></div></div>
+    <p id="loadPct" class="mt-2 text-sm opacity-80">0%</p>
+  </div>
+  <header id="nav" class="nav">
+    <nav aria-label="Main navigation" class="nav-links" id="navLinks">
+      <a href="#home">Home</a><a href="#chocolates">Chocolate Paradise</a><a href="#memes">Cat Memes</a>
+      <a href="#quotes" data-quotes-link>Quote Journey</a><a href="#wishes">Birthday Wishes</a><a href="#finale">Final Surprise</a>
+    </nav>
+    <div class="music" id="musicControls">
+      <button id="musicToggle" class="icon-btn" aria-label="Play music" aria-pressed="false">🎵</button>
+      <button id="muteToggle" class="icon-btn" aria-label="Mute music" aria-pressed="false">🔊</button>
+    </div>
+  </header>
+  <p id="musicNote" class="music-note" role="status" aria-live="polite" hidden></p>
+  <main>
+    <section id="home" class="scene hero">
+      <div class="balloons left" data-balloons aria-hidden="true"></div><div class="balloons right" data-balloons aria-hidden="true"></div>
+      <div class="hero-inner">
+        <div class="photo-frame hero-photo"><img id="heroImg" src="assets/images/g3.jpeg" alt="Garry's photo" data-fallback="💗" /></div>
+        <h1 id="heroTitle" class="font-pacifico">Hey, Garry! 💗</h1>
+        <p id="heroSub" class="lead">I made a little universe of happiness, chocolates, cats, and love just for you.</p>
+        <p class="cat-row" aria-hidden="true"><span class="hat-cat">🐱🎀</span><span class="hat-cat d2">😺🎉</span><span class="hat-cat d3">😸🎀</span></p>
+        <button id="enterBtn" class="btn btn-primary">Enter Your Birthday Wonderland ✨</button>
+      </div>
+    </section>
+    <section id="surprise" class="scene">
+      <div class="glass center">
+        <h2 id="surpriseTitle" class="font-pacifico">Ready for your little birthday surprise, my love? 🎁</h2>
+        <button id="surpriseBtn" class="btn btn-primary">Open Your Birthday Surprise 🎁</button>
+        <div id="numDisplay" class="num-display" aria-live="polite" aria-atomic="true"></div>
+        <div id="surpriseResult" class="reveal" hidden>
+          <p id="resultHeading" class="font-pacifico text-2xl sm:text-3xl"></p><div id="resultCake" aria-hidden="true"></div>
+          <p id="resultGreeting" class="lead"></p><div class="btn-row">
+            <button id="wishBtn" class="btn btn-primary">Make a Birthday Wish ✨</button><button id="replayBtn" class="btn btn-ghost">Replay the Surprise 🔁</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="chocolates" class="scene">
+      <h2 class="section-title font-pacifico">Virtual Chocolate Paradise 🍫</h2><p class="lead center-text">Five little virtual treats, wrapped with love. (No deliveries, just sweetness.)</p><div id="chocGrid" class="grid-cards"></div>
+    </section>
+    <section id="memes" class="scene">
+      <h2 class="section-title font-pacifico">Cat Memes &amp; Birthday Comedy 🐱</h2>
+      <div class="glass center">
+        <div id="memeCard" class="meme-card" aria-live="polite"><div class="meme-stage"><img id="memeImg" src="assets/images/g3.jpeg" alt="" /><span id="memeSticker" class="meme-sticker" aria-hidden="true"></span></div><p id="memeCaption" class="meme-caption"></p></div>
+        <div class="btn-row"><button id="memeBtn" class="btn btn-primary">Show Me Another Meme 😂</button><button id="clapBtn" class="btn btn-ghost">Clap for the Birthday Star 👏</button></div>
+        <p class="mt-4">Applause: <strong id="clapCount">0</strong></p><p id="clapMsg" class="clap-msg" aria-live="polite"></p><div id="memeTiles" class="tiles" role="group" aria-label="Pick a meme"></div>
+      </div>
+    </section>
+    <section id="quotes" class="scene">
+      <h2 class="section-title font-pacifico">Romantic Quote Journey 💗</h2>
+      <div class="glass center quote-wrap">
+        <div class="photo-frame small-photo"><img src="assets/images/g2.jpeg" alt="Garry" data-fallback="🌷" /></div>
+        <p id="quoteProgress" class="progress" aria-live="polite">Quote 1 of 11</p>
+        <div id="quoteCard" class="quote-card" aria-live="polite"><div class="quote-heart" aria-hidden="true">💗</div><h3 id="quoteTitle" class="font-script"></h3><p id="quoteText"></p></div>
+        <div id="quoteFinal" class="quote-card final" hidden><div class="quote-heart" aria-hidden="true">💌</div><h3 class="font-script">That was a little collection of thoughts, just for you. 💗</h3><p id="closingMsg"></p><p id="signature" class="font-script signature"></p></div>
+        <div id="quoteError" class="quote-card" hidden><p id="quoteErrorText">The quotes are taking a tiny nap. 🐱 Please run this site through a local server (see README) and try again.</p><button id="retryQuotes" class="btn btn-ghost">Try Again</button></div>
+        <div class="btn-row" id="quoteControls"><button id="prevQuote" class="btn btn-ghost" hidden>Previous Quote</button><button id="nextQuote" class="btn btn-primary">Next Little Surprise 💌</button><button id="restartQuotes" class="btn btn-primary" hidden>Read Them Again 🔁</button></div>
+      </div>
+    </section>
+    <section id="wishes" class="scene">
+      <h2 class="section-title font-pacifico">Birthday Wishes Wall 🎂</h2><div class="center-text"><button id="randomWishBtn" class="btn btn-primary">Surprise Me With a Wish ✨</button></div><p id="wishReveal" class="wish-reveal" aria-live="polite"></p><div id="wishGrid" class="grid-cards wish-grid"></div>
+    </section>
+    <section id="finale" class="scene finale">
+      <div class="balloons left" data-balloons aria-hidden="true"></div><div class="balloons right" data-balloons aria-hidden="true"></div>
+      <div class="hero-inner"><p class="cat-row" aria-hidden="true"><span class="hat-cat">😺🎉</span><span class="hat-cat d2">🐱🎂</span><span class="hat-cat d3">😸🎊</span></p>
+        <div class="photo-frame small-photo"><img src="assets/images/g4.jpeg" alt="Garry" data-optional="true" /></div><div id="finaleCake" aria-hidden="true"></div><p id="finaleMsg" class="finale-msg"></p><p id="finalWishOut" class="wish-out" aria-live="polite"></p>
+        <div class="btn-row"><button id="finalWishBtn" class="btn btn-primary">Make a Wish ✨</button><button id="restartAll" class="btn btn-ghost">Start the Magic Again 🔁</button></div>
+      </div>
+    </section>
+  </main>
+  <button id="toTop" class="to-top" aria-label="Back to top" hidden>↑</button>
+  <script src="data/quotes.js"></script><script src="script.js"></script>
+</body>
+</html>

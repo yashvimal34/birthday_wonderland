@@ -347,3 +347,100 @@ body {
   .balloon, .amb { display: none; }
 
 }
+
+
+/* ===== Garry's birthday scrapbook image (added section) ===== */
+.birthday-scrapbook-section {
+  gap: 1.25rem;
+  background:
+    radial-gradient(circle at 15% 25%, rgba(255, 179, 209, .13), transparent 32%),
+    radial-gradient(circle at 85% 75%, rgba(205, 180, 255, .16), transparent 35%);
+}
+
+.scrapbook-heading {
+  width: min(100%, 52rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .75rem;
+  text-align: center;
+}
+
+.scrapbook-kicker {
+  display: inline-block;
+  padding: .45rem 1rem;
+  border: 1px solid rgba(255, 179, 209, .55);
+  border-radius: 999px;
+  background: rgba(255, 179, 209, .12);
+  color: var(--cream);
+  font-size: .95rem;
+  letter-spacing: .04em;
+}
+
+.birthday-scrapbook {
+  width: min(100%, 36rem);
+  margin: .5rem auto 0;
+  padding: clamp(.55rem, 2vw, .9rem);
+  border: 1px solid rgba(255, 255, 255, .72);
+  border-radius: 1.5rem;
+  background: linear-gradient(145deg, #fff8ee, #ffd9e7 55%, #f5e7ff);
+  box-shadow:
+    0 0 0 5px rgba(255, 179, 209, .2),
+    0 18px 55px rgba(0, 0, 0, .36),
+    0 0 35px rgba(255, 126, 182, .22);
+  transform: rotate(-1deg);
+  transition: transform .35s ease, box-shadow .35s ease;
+}
+
+.birthday-scrapbook:hover {
+  transform: rotate(0) translateY(-4px);
+  box-shadow:
+    0 0 0 5px rgba(255, 179, 209, .25),
+    0 24px 60px rgba(0, 0, 0, .4),
+    0 0 42px rgba(255, 126, 182, .3);
+}
+
+.birthday-scrapbook img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 82vh;
+  object-fit: contain;
+  border-radius: .85rem;
+}
+
+.birthday-scrapbook figcaption {
+  padding: .85rem .5rem .25rem;
+  color: #59284f;
+  text-align: center;
+  font-family: 'Dancing Script', cursive;
+  font-size: clamp(1.35rem, 4vw, 2rem);
+  font-weight: 700;
+}
+
+@media (max-width: 640px) {
+  .birthday-scrapbook {
+    width: min(100%, 32rem);
+    border-radius: 1.1rem;
+    transform: none;
+  }
+
+  .birthday-scrapbook img {
+    max-height: none;
+    border-radius: .65rem;
+  }
+
+  .scrapbook-kicker {
+    font-size: .85rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .birthday-scrapbook {
+    transition: none;
+  }
+
+  .birthday-scrapbook:hover {
+    transform: none;
+  }
+}

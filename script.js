@@ -38,13 +38,13 @@ const buildMessages = (c) => ({
 
     "Wrapping chocolates with extra love...",
 
-    "Teaching the cats to sing happy birthday..."
+    "Teaching the to sing happy birthday..."
 
   ],
 
   heroTitle: `Hey, ${c.recipientName}! 💗`,
 
-  heroSub: "I made a little universe of happiness, chocolates, cats, and love just for you.",
+  heroSub: "I made a little universe of happiness, chocolates,, and love just for you.",
 
   surpriseTitle: "Ready for your little birthday surprise, my love? 🎁",
 
@@ -800,7 +800,7 @@ const buildMessages = (c) => ({
 
     const clapBtn = $("clapBtn"), count = $("clapCount"), clapMsg = $("clapMsg");
 
-    const cheers = ["Yay! 🎉", "Louder! 👏", "Standing ovation! 🥳", "The cats are cheering too! 🐱", "You deserve every clap! 💗"];
+    const cheers = ["Yay! 🎉", "Louder! 👏", "Standing ovation! 🥳", "The are cheering too! 🐱", "You deserve every clap! 💗"];
 
     let claps = 0;
 
@@ -990,7 +990,7 @@ const buildMessages = (c) => ({
 
       ["May you rest well and wake up excited.", "Tomorrow has good things planned. 🌅"],
 
-      ["May the cats of the world adore you.", "They already do. 🐱"]
+      ["May the of the world adore you.", "They already do. 🐱"]
 
     ];
 
